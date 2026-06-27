@@ -206,8 +206,8 @@ Body
 
 ```json
 {
-    "name":"John Doe",
-    "email":"john@gmail.com",
+    "name":"Arsal Fahrulloh",
+    "email":"arsal@gmail.com",
     "password":"password123",
     "password_confirmation":"password123"
 }
@@ -227,8 +227,8 @@ Body
 
 ```json
 {
-    "name":"John Doe Updated",
-    "email":"johnupdated@gmail.com"
+    "name":"Arsal Fahrulloh Updated",
+    "email":"arsalupdated@gmail.com"
 }
 ```
 
@@ -367,6 +367,6 @@ database
 
 # Author
 
-Nama Lengkap
+Arsal Fahrulloh
 
 Backend Developer Technical Test
