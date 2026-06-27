@@ -1,63 +1,372 @@
-<<<<<<< HEAD
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Backend Technical Test - Adhivasindo
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+REST API sederhana yang dibangun menggunakan **Laravel 12** dan **MySQL** untuk memenuhi technical test Backend Developer PT Adhivasindo.
 
-## About Laravel
+## Tech Stack
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+- Laravel 12
+- PHP 8.2+
+- MySQL
+- Laravel Sanctum
+- Postman
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+---
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+# Fitur
 
-## Learning Laravel
+### Authentication
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+- Login
+- Register
+- Authentication menggunakan Laravel Sanctum (Bearer Token)
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+### CRUD User
 
-## Laravel Sponsors
+- Menampilkan seluruh user
+- Menampilkan detail user
+- Menambahkan user
+- Mengubah user
+- Menghapus user
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+### Search Data Realtime
 
-### Premium Partners
+Mengambil data secara realtime dari endpoint berikut
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+https://ogienurdiana.com/career/ecc694ce4e7f6e45a5a7912cde9fe131
 
-## Contributing
+Search yang tersedia
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+- Search berdasarkan Nama
+- Search berdasarkan NIM
+- Search berdasarkan YMD
 
-## Code of Conduct
+---
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+# Requirement
 
-## Security Vulnerabilities
+- PHP >= 8.2
+- Composer
+- MySQL
+- Laravel 12
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+---
 
-## License
+# Instalasi
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
-=======
-# adhivasindo-test
->>>>>>> f8383290f6e9820d8db2ec72f0daa0058630187f
+Clone repository
+
+```bash
+git clone https://github.com/USERNAME/adhivasindo-test.git
+```
+
+Masuk ke project
+
+```bash
+cd adhivasindo-test
+```
+
+Install dependency
+
+```bash
+composer install
+```
+
+Copy file environment
+
+```bash
+cp .env.example .env
+```
+
+Generate key
+
+```bash
+php artisan key:generate
+```
+
+Atur konfigurasi database pada file `.env`
+
+```env
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=adhivasindo
+DB_USERNAME=root
+DB_PASSWORD=
+```
+
+Jalankan migration
+
+```bash
+php artisan migrate
+```
+
+Jalankan server
+
+```bash
+php artisan serve
+```
+
+Server berjalan pada
+
+```
+http://127.0.0.1:8000
+```
+
+---
+
+# Authentication
+
+Semua endpoint CRUD User dan Search menggunakan Bearer Token.
+
+Header
+
+```
+Authorization: Bearer {token}
+```
+
+---
+
+# Endpoint API
+
+## Authentication
+
+### Login
+
+POST
+
+```
+/api/login
+```
+
+Body
+
+```json
+{
+    "email":"admin@gmail.com",
+    "password":"password"
+}
+```
+
+---
+
+### Register
+
+POST
+
+```
+/api/register
+```
+
+Body
+
+```json
+{
+    "name":"Administrator",
+    "email":"admin@gmail.com",
+    "password":"password",
+    "password_confirmation":"password"
+}
+```
+
+---
+
+# CRUD User
+
+Semua endpoint berikut wajib menggunakan Bearer Token.
+
+## Get All User
+
+GET
+
+```
+/api/user
+```
+
+---
+
+## Get User By ID
+
+GET
+
+```
+/api/user/{id}
+```
+
+---
+
+## Create User
+
+POST
+
+```
+/api/user
+```
+
+Body
+
+```json
+{
+    "name":"John Doe",
+    "email":"john@gmail.com",
+    "password":"password123",
+    "password_confirmation":"password123"
+}
+```
+
+---
+
+## Update User
+
+PUT
+
+```
+/api/user/{id}
+```
+
+Body
+
+```json
+{
+    "name":"John Doe Updated",
+    "email":"johnupdated@gmail.com"
+}
+```
+
+---
+
+## Delete User
+
+DELETE
+
+```
+/api/user/{id}
+```
+
+---
+
+# Search Data Realtime
+
+Data diambil secara realtime dari endpoint:
+
+https://ogienurdiana.com/career/ecc694ce4e7f6e45a5a7912cde9fe131
+
+## Search By Name
+
+GET
+
+```
+/api/search/name?value=Turner Mia
+```
+
+---
+
+## Search By NIM
+
+GET
+
+```
+/api/search/nim?value=9352078461
+```
+
+---
+
+## Search By YMD
+
+GET
+
+```
+/api/search/ymd?value=20230405
+```
+
+---
+
+# Validasi
+
+Project menggunakan Laravel Form Request Validation.
+
+- LoginRequest
+- RegisterRequest
+- CreateUserRequest
+- UpdateUserRequest
+
+---
+
+# Response Format
+
+Seluruh endpoint mengembalikan response JSON.
+
+Contoh
+
+```json
+{
+    "message":"Data user berhasil dibuat",
+    "success":true,
+    "data":{},
+    "status_code":201
+}
+```
+
+---
+
+# Database
+
+Database menggunakan MySQL.
+
+Migration terdapat pada folder
+
+```
+database/migrations
+```
+
+Backup database dapat ditemukan pada
+
+```
+database.sql
+```
+
+---
+
+# Postman Collection
+
+Collection API tersedia pada
+
+```
+postman_collection.json
+```
+
+Import collection ke Postman kemudian lakukan login untuk memperoleh Bearer Token sebelum mengakses endpoint yang membutuhkan autentikasi.
+
+---
+
+# Project Structure
+
+```
+app
+ ├── Http
+ │    ├── Controllers
+ │    ├── Requests
+ ├── Models
+ ├── Services
+
+routes
+database
+```
+
+---
+
+# Catatan
+
+- Menggunakan Service Layer
+- Menggunakan Form Request Validation
+- Menggunakan Laravel Sanctum Authentication
+- Menggunakan REST API
+- Menggunakan MySQL Database
+- Mengambil data realtime menggunakan Laravel HTTP Client
+
+---
+
+# Author
+
+Nama Lengkap
+
+Backend Developer Technical Test
