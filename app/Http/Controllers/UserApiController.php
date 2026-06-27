@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CreateUserRequest;
+use App\Http\Requests\UpdateUserRequest;
 use App\Services\UserService;
 use Illuminate\Http\Request;
 
@@ -25,15 +27,15 @@ class UserApiController extends Controller
         return response()->json($data, $data['status_code']);
     }
 
-    public function store(Request $request)
+    public function store(CreateUserRequest $request)
     {
-        $data = $this->userService->createUser($request->all());
+        $data = $this->userService->createUser($request);
         return response()->json($data, $data['status_code']);
     }
 
-    public function update(Request $request, $id)
+    public function update(UpdateUserRequest $request, $id)
     {
-        $data = $this->userService->updateUser($id, $request->all());
+        $data = $this->userService->updateUser($id, $request);
         return response()->json($data, $data['status_code']);
     }
 

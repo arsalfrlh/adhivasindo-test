@@ -15,7 +15,7 @@ class AuthService
 
         if(Hash::check($request->password, $user->password)){
             $data = [
-                'name' => $user->name,,
+                'name' => $user->name,
                 'token' => $user->createToken('auth_token')->plainTextToken,
                 'token_type' => 'Bearer'
             ];
