@@ -1,2 +1,2 @@
 # adhivasindo-test
-s
+sws
